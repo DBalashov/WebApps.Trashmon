@@ -309,7 +309,7 @@ export class ServiceConnector {
             (r: IDataLoadSaveResult) => r.ok);
     }
 
-    public CacheFind(ids: string[], sd: Date, ed: Date, stageName: string, values: string[]): Promise<ICacheFindResult[]> {
+    public CacheFind(ids: string[], sd: Date, ed: Date, stName: string, values: string[]): Promise<ICacheFindResult[]> {
         return this.post<ICacheFindResult[]>('CacheFind',
             {
                 session: this.token,
@@ -317,14 +317,16 @@ export class ServiceConnector {
                 IDs: ids != null && ids.length > 0 ? ids.join(',') : 'all',
                 SD: moment(sd).format(this.FMT_DT),
                 ED: moment(ed).format(this.FMT_DT),
-                stageName: stageName,
+                stageName: stName,
                 values: values.join(',')
             },
             (r: any) => {
                 let items: ICacheFindResult[] = [];
-                for (let it in r)
-                    if (r[it])
+                for (let it in r) {
+                    if (r[it]) {
                         items.push(r[it]);
+                    }
+                }
                 return items;
             });
     }
@@ -373,12 +375,8 @@ export interface IEnumDeviceItem extends IEnumCommonItem {
 
 // geofences
 export interface IEnumGeofencesResult {
-    Items: IEnumGeofenceItem[];
+    Items: IEnumCommonItem[];
     Groups: IEnumCommonGroup[];
-}
-
-export interface IEnumGeofenceItem extends IEnumCommonItem {
-
 }
 
 export interface IGeofenceItem {
@@ -406,12 +404,8 @@ export interface IEnumDriverItem extends IEnumCommonItem {
 
 // drivers
 export interface IEnumImplementsResult {
-    Items: IEnumImplementItem[];
+    Items: IEnumCommonItem[];
     Groups: IEnumCommonGroup[];
-}
-
-export interface IEnumImplementItem extends IEnumCommonItem {
-
 }
 
 // parameters

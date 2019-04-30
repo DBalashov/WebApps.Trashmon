@@ -2,7 +2,7 @@ interface IExternalSettings
 {
     Urls: IExternalSettingsUrls;
     Token: string;
-    
+
     User?: IUser;
     Organization: IOrganization;
     Settings: {};
@@ -12,7 +12,7 @@ interface IExternalSettingsUrls {
     Service: string;
     Relative: string;
     Content: string
-    Image: string;
+    ImageCar: string;
 }
 
 interface IUser {

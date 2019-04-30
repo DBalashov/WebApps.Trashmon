@@ -1,10 +1,25 @@
 module.exports = {
+    publicPath: './',
+    chainWebpack: config => {
+        config
+            .plugin('html')
+            .tap(args => {
+                args[0]['minify'] = {
+                    removeAttributeQuotes: false
+                };
+                return args;
+        })
+    },
     devServer: {
         proxy: {
-            "/WebMap/*": {
-                target: "http://localhost:80",
+            '/WebMap/*': {
+                target: 'http://localhost:80',
                 changeOrigin: true,
-                ws: true,
+                secure: false
+            },
+            '/external-settings.js': { // or create your own file external-settings.js in public folder
+                target: 'http://localhost:80/WebMap/App/ExternalSettings/Test-3.js',
+                changeOrigin: true,
                 secure: false
             }
         }

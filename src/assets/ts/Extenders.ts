@@ -22,7 +22,7 @@ export function markerGetIcon(p: IGetOnlineInfoItem, car:IEnumDeviceItem): L.Div
     let lastData = ((+new Date()) - (<any>(moment(p._LastData).toDate()))) / 1000;
 
     return L.divIcon({
-        html: ['<div class="car-marker__title title">', car.Name, '</div><img src="', ExternalSettings.Urls.Image, '/Car/', car.ImageColored, '" class="car-marker__image" />'].join(''),
+        html: ['<div class="car-marker__title title">', car.Name, '</div><img src="', ExternalSettings.Urls.ImageCar, '/', car.ImageColored, '" class="car-marker__image" />'].join(''),
         className: 'car-marker ' + (lastData < (60*60*10) ? '' : 'old-data')
     });
 }

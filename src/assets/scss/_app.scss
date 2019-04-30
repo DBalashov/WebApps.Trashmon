@@ -1,0 +1,317 @@
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    font: 400 1em/1.5 "Roboto Condensed", sans-serif;
+    color: #212529;
+    background: #fff;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    height: 54px;
+    padding: .5em 2em;
+    background: #343a40;
+
+    &__logo {
+        margin-right: 1em;
+        font-size: 1.25em;
+        color: #fff;
+    }
+}
+
+.layout {
+    display: flex;
+    align-items: stretch;
+    height: calc(100vh - 54px);
+
+    &__left {
+        flex: 0 0 75%;
+    }
+
+    &__right {
+        flex: 0 0 25%;
+        padding: 1em 1em 0 1em;
+        border-left: 4px solid #343a40;
+
+        a {
+            color: #007bff;
+        }
+    }
+
+    &__menu {
+        flex: 0 0 1;
+    }
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+// ---
+
+.map {
+    height: calc(100vh - 54px);
+}
+
+.stop-point {
+    background-color: rgba(30,125,52, 0.7);
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 1.1em;
+    padding: 0;
+    border: 2px solid #185a27;
+    width: 2.6rem !important;
+    height: 2.6rem !important;
+    padding-top: 0.25rem;
+}
+
+.car-marker {
+    width:auto !important;
+    height:auto !important;
+    background: rgba(255,255,255, 0.6);
+    border-radius: 5px;
+    border: 1.5px solid rgba(0,0,255, 0.4);
+    padding: 2px 2px 0 2px;
+    text-align: center;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.25);
+}
+
+.car-marker:after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -7px;
+    margin-left: -6px;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid rgba(0,0,255, 0.4);
+    z-index: 1;
+}
+
+.car-marker.old-data {
+    border-color: rgba(255,0,0,0.4);
+}
+.car-marker.old-data .car-marker__title {
+    background: rgba(255,0,0,0.4);
+}
+
+.car-marker.old-data:after {
+    border-top-color: rgba(255,0,0,0.4);
+}
+
+.car-marker__image {
+    width: 36px;
+}
+
+.car-marker__title {
+    position: absolute;
+    left: 0;
+    min-width: 100%;
+    transform: translateY(-100%);
+    margin-top: -6px;
+    padding: 0 2px;
+    font-size: 7pt;
+    color: #fff;
+    font-weight: normal;
+    text-align: center;
+    line-height: 1.1em;
+    max-height: 2em;
+    overflow: hidden;
+    border-radius: 2px;
+    background: rgba(255,0,0,0.4);
+}
+
+.cluster {
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 32px !important;
+    color: white;
+    font-weight: normal;
+    font-size: 10pt;
+}
+
+.cluster-normal {
+    background-color: rgba(255,0,0,0.5);
+    border: 1px solid red;
+    box-shadow: 0px 0px 10px 0px rgba(255,0,0,0.75);
+}
+
+.cluster-completed {
+    background-color: rgba(0,255,0,0.5);
+    border: 1px solid rgba(0,255,0,0.5);
+    color: #212529;
+    box-shadow: 0px 0px 10px 0px rgba(0, 255, 0, 0.8);
+}
+
+// ---
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+
+    td,
+    th {
+        padding: .1em;
+        vertical-align: top;
+    }
+
+    th {
+        border: 0;
+        text-align: inherit;
+        font-weight: 700;
+    }
+
+    td {
+        border-top: 1px solid #dee2e6;
+    }
+}
+
+// ---
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    height: calc(2.25rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-family: inherit;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+// ---
+
+.text-muted {
+    color: #6c757d;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.pl-2, .px-2 {
+    padding-left: .5rem;
+}
+
+// ---
+
+.alert {
+    position: relative;
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+
+    &-primary {
+        color: #004085;
+        background-color: #cce5ff;
+        border-color: #b8daff;
+    }
+
+    &-success {
+        color: #155724;
+        background-color: #d4edda;
+        border-color: #c3e6cb;
+    }
+}
+
+.badge {
+    display: inline-block;
+    padding: 0.25em 0.4em;
+    font-size: 75%;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 0.25rem;
+
+    & + & {
+        margin-left: .5em;
+    }
+
+    &-primary {
+        color: #fff;
+        background-color: #007bff;
+    }
+
+    &-success {
+        color: #fff;
+        background-color: #28a745;
+    }
+}
+
+// ---
+
+.tabs {
+    display: flex;
+    align-items: stretch;
+    margin: 0 -1rem 1rem -1rem;
+
+    &:before,
+    &:after {
+        content: "";
+        border-bottom: 1px solid #dee2e6;
+    }
+
+    &:before {
+        width: 1rem;
+    }
+
+    &:after {
+        flex: 1;
+    }
+
+    &__item {
+        display: inline-block;
+        vertical-align: middle;
+        padding: .5rem 1rem;
+        border: 1px solid transparent;
+        border-bottom-color: #dee2e6;
+        border-top-left-radius: 0.25rem;
+        border-top-right-radius: 0.25rem;
+        white-space: nowrap;
+        cursor: pointer;
+
+        &--active {
+            border-color: #dee2e6;
+            border-bottom-color: transparent;
+            cursor: default;
+        }
+    }
+
+    &__content {
+        display: none;
+        overflow: auto;
+
+        &--active {
+            display: block;
+        }
+    }
+}
