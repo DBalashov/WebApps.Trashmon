@@ -21,7 +21,6 @@
     "@vue/cli-plugin-babel": "^3.6.0",
     "@vue/cli-plugin-typescript": "^3.6.0",
     "@vue/cli-service": "^3.6.0",
-    "font-awesome": "^4.7.0",
     "leaflet": "^1.4.0",
     "moment": "^2.24.0",
     "node-sass": "^4.9.0",

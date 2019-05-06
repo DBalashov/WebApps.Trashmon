@@ -15,6 +15,23 @@ body {
     background: #fff;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+big {
+    font-size: larger;
+}
+
+small {
+    font-size: smaller;
+}
+
+.im {
+    display: inline-block;
+}
+
 .header {
     display: flex;
     align-items: center;
@@ -51,11 +68,6 @@ body {
     &__menu {
         flex: 0 0 1;
     }
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
 }
 
 // ---
@@ -216,6 +228,10 @@ a {
     text-align: right;
 }
 
+.text-nowrap {
+    white-space: nowrap;
+}
+
 .pl-2, .px-2 {
     padding-left: .5rem;
 }
@@ -264,6 +280,11 @@ a {
     &-success {
         color: #fff;
         background-color: #28a745;
+    }
+
+    .im {
+        margin-top: -1px;
+        vertical-align: middle;
     }
 }
 

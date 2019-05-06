@@ -33,19 +33,19 @@
                                     </th>
                                     <th>
                                         <div class="text-center">
-                                            <a class="" href="javascript:void(0)" v-on:click="CurrentTrip.ClearTrip()"><i class="fa fa-times"></i></a>
+                                            <a href="javascript:void(0)" v-on:click="CurrentTrip.ClearTrip()"><big>&times;</big></a>
                                         </div>
                                     </th>
                                 </tr>
                                 <tr>
                                     <td>Начало периода</td>
                                     <td>{{CurrentTrip.S.D}} - {{CurrentTrip.S.T}}</td>
-                                    <td class="text-center"><a href="javascript:void(0)" v-on:click="CurrentTrip.Shift(-1)"><i class="fa fa-chevron-up"></i></a></td>
+                                    <td class="text-center"><a href="javascript:void(0)" v-on:click="CurrentTrip.Shift(-1)"><big class="im im-keyboard_arrow_up"></big></a></td>
                                 </tr>
                                 <tr>
                                     <td>Конец периода</td>
                                     <td>{{CurrentTrip.E.D}} - {{CurrentTrip.E.T}}</td>
-                                    <td class="text-center"><a href="javascript:void(0)" v-on:click="CurrentTrip.Shift(1)"><i class="fa fa-chevron-down"></i></a></td>
+                                    <td class="text-center"><a href="javascript:void(0)" v-on:click="CurrentTrip.Shift(1)"><big class="im im-keyboard_arrow_down"></big></a></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -54,16 +54,16 @@
                         <tr v-for="o in CurrentTrip.Items" v-if="o.Type>=0">
                             <td v-if="o.Type==0" colspan="2">
                                 <span v-if="o.MoveDuration" class="badge badge-success">
-                                    <i class="fa fa-play-circle"></i> движение: {{o.MoveDuration}}
+                                    <i class="im im-play"></i> движение: {{o.MoveDuration}}
                                 </span>
                                 <span v-if="o.ParkDuration" class="badge badge-primary">
-                                    <i class="fa fa-stop-circle"></i> стоянка: {{o.ParkDuration}}
+                                    <i class="im im-stop"></i> стоянка: {{o.ParkDuration}}
                                 </span>
                             </td>
 
-                            <td v-if="o.Type==1">{{o.S.T}}&thinsp;&ndash;&thinsp;{{o.E.T}}</td>
+                            <td v-if="o.Type==1" class="text-nowrap">{{o.S.T}}&thinsp;&ndash;&thinsp;{{o.E.T}}</td>
                             <td v-if="o.Type==1" class="pl-2">
-                                <i class="fa fa-map-marker text-muted"></i>
+                                <i class="im im-location text-muted"></i>
                                 <a href="javascript:void(0)" v-on:click="gotoPoint(o.PStart)">
                                     {{o.GF.Name}}
                                 </a>
@@ -396,6 +396,6 @@
     @import '~leaflet/dist/leaflet.css';
     @import '~leaflet.markercluster/dist/MarkerCluster.css';
     @import '~leaflet.markercluster/dist/MarkerCluster.Default.css';
-    @import '~font-awesome/scss/font-awesome.scss';
+    @import './assets/icomoon/style.css';
     @import './assets/scss/app';
 </style>
